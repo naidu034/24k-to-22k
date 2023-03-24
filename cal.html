@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<script src=
+"https://cdnjs.cloudflare.com/ajax/libs/mathjs/10.6.4/math.js"
+		integrity=
+"sha512-BbVEDjbqdN3Eow8+empLMrJlxXRj5nEitiCAK5A1pUr66+jLVejo3PmjIaucRnjlB0P9R3rBUs3g5jXc8ti+fQ=="
+		crossorigin="anonymous"
+		referrerpolicy="no-referrer"></script>
+	<script src=
+"https://cdnjs.cloudflare.com/ajax/libs/mathjs/10.6.4/math.min.js"
+		integrity=
+"sha512-iphNRh6dPbeuPGIrQbCdbBF/qcqadKWLa35YPVfMZMHBSI6PLJh1om2xCTWhpVpmUyb4IvVS9iYnnYMkleVXLA=="
+		crossorigin="anonymous"
+		referrerpolicy="no-referrer"></script>
+	<!-- for styling -->
+	<style>
+		table {
+			border: 1px solid black;
+			margin-left: auto;
+			margin-right: auto;
+		}
+
+		label {
+			width: 100%;
+			padding: 10px 20px;
+			background-color: green;
+			color: white;
+			font-size: 10px;
+			font-weight: bold;
+			border: none;
+			border-radius: 5px;
+		}
+
+		input[type="number"] {
+			padding: 10px 15px;
+			font-size: 10px;
+			font-weight: bold;
+			border: none;
+			border-radius: 5px;
+			border: 2px solid black;
+		}
+	</style>
+</head>
+<!-- create table -->
+
+<body>
+	
+<br>
+<table id="calcu">
+		<tr>
+			<td><label> 24K :</label></td>
+			<td colspan="3"><input type="number" step="any" oninput="ch24(this)" id="24k"></td>
+		</tr>
+		<tr>
+			<td><label> 22K :</label></td>
+			<td colspan="3"><input type="number" step="any" oninput="ch22(this)" id="22k"></td>
+		</tr>
+</table>
+<table id="calcu">
+		<tr>
+			<td><label> N.WT :</label></td>
+			<td colspan="3"><input type="number" step="any" id="nwt1" oninput="nt1(this)"></td>
+		</tr>
+<tr>
+			<td><label> VA :</label></td>
+			<td colspan="3"><input  type="number" step="any" id="va1" oninput="solve(this)"></td>
+		</tr>
+<tr>
+			<td><label> Cost =</label></td>
+			<td colspan="3"><input  type="number" step="any" id="cost11"></td>
+<td><label> X</label></td>
+			<td colspan="3"><input type="number" step="any" id="cost12"></td>
+		</tr>
+<tr>
+			<td><label> Total =</label></td>
+			<td colspan="3"><input  type="number" step="any" id="tol1"></td>
+		</tr>
+</table>
+
+<hr>
+
+<table id="calcu">
+		<tr>
+			<td><label> N.WT :</label></td>
+			<td colspan="3"><input  type="number" step="any" id="nwt2" oninput="nt2(this)"></td>
+		</tr>
+<tr>
+			<td><label> VA :</label></td>
+			<td colspan="3"><input  type="number" step="any" id="va2"></td>
+		</tr>
+<tr>
+			<td><label> Cost =</label></td>
+			<td colspan="3"><input  type="number" step="any" id="cost21"></td>
+<td><label> X</label></td>
+			<td colspan="3"><input type="number" step="any" placeholder="rate" oninput="valid(this)" id="cost22"></td>
+		</tr>
+<tr>
+			<td><label> Total =</label></td>
+			<td colspan="3"><input  type="number" step="any" id="tol2"></td>
+		</tr>
+<tr>
+			<td><label> GST =</label></td>
+			<td colspan="3"><input  type="number" step="any" id="gst"></td>
+		</tr>
+<tr>
+			<td><label> N.Total =</label></td>
+			<td colspan="3"><input  type="number" step="any" id="ntol"></td>
+		</tr>
+</table>
+
+	<script>
+		document.getElementById("cost12").value=localStorage.getItem("24k");
+		document.getElementById("cost22").value=localStorage.getItem("22k");
+		document.getElementById("24k").value=localStorage.getItem("24k");
+		document.getElementById("22k").value=localStorage.getItem("22k");
+            
+	function ch24(elem){
+val24=document.getElementById("24k").value;
+localStorage.setItem("24k", val24);
+document.getElementById("cost12").value=val24;
+
+}
+	function ch22(elem){
+val22=document.getElementById("22k").value;
+localStorage.setItem("22k", val22);
+document.getElementById("cost22").value=val22;
+
+}
+	function nt1(elem){
+val=document.getElementById("nwt1").value;
+document.getElementById("nwt2").value=val;
+solve();
+}
+	function nt2(elem){
+val=document.getElementById("nwt2").value;
+document.getElementById("nwt1").value=val;
+}
+
+
+		// Function that evaluates the box1
+		function solve() {
+		var nwt1 = parseInt(document.getElementById("nwt1").value);
+		var va1 = document.getElementById("va1").value;
+		document.getElementById("cost11").value=((nwt1*va1)/100);
+
+		var c1 = document.getElementById("cost11").value;
+		var p1 = document.getElementById("cost12").value;
+		document.getElementById("tol1").value=c1*p1;
+
+		var t1 = document.getElementById("tol1").value;
+		document.getElementById("ntol").value=t1;
+
+		var nt = document.getElementById("ntol").value;
+		document.getElementById("tol2").value=((nt*100)/103);
+		
+		var t2 = document.getElementById("tol2").value;
+		document.getElementById("gst").value=nt-t2;
+
+		var p2 = document.getElementById("cost22").value;
+		document.getElementById("cost21").value=t2/p2;
+		
+		var c2 = document.getElementById("cost21").value;
+		var nwt2 = document.getElementById("nwt2").value;
+		document.getElementById("va2").value=((c2-nwt2)*100)/nwt2;
+		
+		
+		}
+		
+	</script>
+</body>
+
+</html>
