@@ -143,7 +143,7 @@ document.getElementById("nwt1").value=val;
 		function solve() {
 		var nwt1 = parseInt(document.getElementById("nwt1").value);
 		var va1 = document.getElementById("va1").value;
-		document.getElementById("cost11").value=((nwt1*va1)/100);
+		document.getElementById("cost11").value=nwt1+((nwt1*va1)/100);
 
 		var c1 = document.getElementById("cost11").value;
 		var p1 = document.getElementById("cost12").value;
@@ -163,7 +163,7 @@ document.getElementById("nwt1").value=val;
 		
 		var c2 = document.getElementById("cost21").value;
 		var nwt2 = document.getElementById("nwt2").value;
-		document.getElementById("va2").value=((c2)*100)/nwt2;
+		document.getElementById("va2").value=((c2-nwt2)*100)/nwt2;
 		
 		
 		}
