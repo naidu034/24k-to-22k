@@ -88,7 +88,7 @@
 		</tr>
 <tr>
 			<td><label> VA :</label></td>
-			<td colspan="3"><input  type="number" step="any" id="va2"></td>
+			<td colspan="3"><input  type="number" step="any" id="va2" oninput="solve1(this)"></td>
 		</tr>
 <tr>
 			<td><label> Cost =</label></td>
@@ -136,6 +136,7 @@ solve();
 	function nt2(elem){
 val=document.getElementById("nwt2").value;
 document.getElementById("nwt1").value=val;
+solve1();
 }
 
 
@@ -164,6 +165,33 @@ document.getElementById("nwt1").value=val;
 		var c2 = document.getElementById("cost21").value;
 		var nwt2 = document.getElementById("nwt2").value;
 		document.getElementById("va2").value=((c2-nwt2)*100)/nwt2;
+		
+		
+		}
+		function solve1() {
+		var nwt2 = parseInt(document.getElementById("nwt2").value);
+		var va2 = document.getElementById("va2").value;
+		document.getElementById("cost11").value=nwt2+((nwt2*va2)/100);
+
+		var c2 = document.getElementById("cost21").value;
+		var p2 = document.getElementById("cost22").value;
+		document.getElementById("tol2").value=c2*p2;
+
+		var t2 = document.getElementById("tol2").value;
+		document.getElementById("gst").value=(t2*3)/100;
+		
+		var g = document.getElementById("gst").value;
+		document.getElementById("ntol").value=g+t2;
+
+		var nt = document.getElementById("ntol").value;
+		document.getElementById("tol1").value=nt;
+		
+		var p1 = document.getElementById("cost12").value;
+		document.getElementById("cost21").value=nt/p1;
+		
+		var c1 = document.getElementById("cost21").value;
+		var nwt1 = document.getElementById("nwt1").value;
+		document.getElementById("va1").value=((c1-nwt1)*100)/nwt1;
 		
 		
 		}
