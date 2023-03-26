@@ -157,7 +157,7 @@ solve1();
 		document.getElementById("tol2").value=parseFloat(((nt*100)/103)).toFixed(5);
 		
 		var t2 = parseFloat(document.getElementById("tol2").value);
-		document.getElementById("gst").value=nt-t2;
+		document.getElementById("gst").value=parseFloat(nt-t2).toFixed(5);
 
 		var p2 = parseFloat(document.getElementById("cost22").value);
 		document.getElementById("cost21").value=parseFloat(t2/p2).toFixed(5);
