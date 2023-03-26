@@ -142,7 +142,7 @@ solve1();
 
 		// Function that evaluates the box1
 		function solve() {
-		var nwt1 = parseInt(document.getElementById("nwt1").value);
+		var nwt1 = parseFloat(document.getElementById("nwt1").value);
 		var va1 = document.getElementById("va1").value;
 		document.getElementById("cost11").value=nwt1+((nwt1*va1)/100);
 
@@ -169,18 +169,18 @@ solve1();
 		
 		}
 		function solve1() {
-		var nwt2 = parseInt(document.getElementById("nwt2").value);
-		var va2 = parseInt(document.getElementById("va2").value);
+		var nwt2 = parseFloat(document.getElementById("nwt2").value);
+		var va2 = parseFloat(document.getElementById("va2").value);
 		document.getElementById("cost21").value=nwt2+((nwt2*va2)/100);
 
 		var c2 = document.getElementById("cost21").value;
 		var p2 = document.getElementById("cost22").value;
 		document.getElementById("tol2").value=c2*p2;
 
-		var t2 = parseInt(document.getElementById("tol2").value);
+		var t2 = parseFloat(document.getElementById("tol2").value);
 		document.getElementById("gst").value=(t2*3)/100;
 		
-		var g = parseInt(document.getElementById("gst").value);
+		var g = parseFloat(document.getElementById("gst").value);
 		document.getElementById("ntol").value=g+t2;
 
 		var nt = document.getElementById("ntol").value;
