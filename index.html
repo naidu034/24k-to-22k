@@ -143,27 +143,27 @@ solve1();
 		// Function that evaluates the box1
 		function solve() {
 		var nwt1 = parseFloat(document.getElementById("nwt1").value);
-		var va1 = document.getElementById("va1").value;
+		var va1 = parseFloat(document.getElementById("va1").value);
 		document.getElementById("cost11").value=nwt1+((nwt1*va1)/100);
 
-		var c1 = document.getElementById("cost11").value;
-		var p1 = document.getElementById("cost12").value;
+		var c1 = parseFloat(document.getElementById("cost11").value);
+		var p1 = parseFloat(document.getElementById("cost12").value);
 		document.getElementById("tol1").value=c1*p1;
 
-		var t1 = document.getElementById("tol1").value;
+		var t1 = parseFloat(document.getElementById("tol1").value);
 		document.getElementById("ntol").value=t1;
 
-		var nt = document.getElementById("ntol").value;
+		var nt = parseFloat(document.getElementById("ntol").value);
 		document.getElementById("tol2").value=((nt*100)/103);
 		
-		var t2 = document.getElementById("tol2").value;
+		var t2 = parseFloat(document.getElementById("tol2").value);
 		document.getElementById("gst").value=nt-t2;
 
-		var p2 = document.getElementById("cost22").value;
+		var p2 = parseFloat(document.getElementById("cost22").value);
 		document.getElementById("cost21").value=t2/p2;
 		
-		var c2 = document.getElementById("cost21").value;
-		var nwt2 = document.getElementById("nwt2").value;
+		var c2 = parseFloat(document.getElementById("cost21").value);
+		var nwt2 = parseFloat(document.getElementById("nwt2").value);
 		document.getElementById("va2").value=((c2-nwt2)*100)/nwt2;
 		
 		
@@ -173,8 +173,8 @@ solve1();
 		var va2 = parseFloat(document.getElementById("va2").value);
 		document.getElementById("cost21").value=nwt2+((nwt2*va2)/100);
 
-		var c2 = document.getElementById("cost21").value;
-		var p2 = document.getElementById("cost22").value;
+		var c2 = parseFloat(document.getElementById("cost21").value);
+		var p2 = parseFloat(document.getElementById("cost22").value);
 		document.getElementById("tol2").value=c2*p2;
 
 		var t2 = parseFloat(document.getElementById("tol2").value);
@@ -183,14 +183,14 @@ solve1();
 		var g = parseFloat(document.getElementById("gst").value);
 		document.getElementById("ntol").value=g+t2;
 
-		var nt = document.getElementById("ntol").value;
+		var nt = parseFloat(document.getElementById("ntol").value);
 		document.getElementById("tol1").value=nt;
 		
-		var p1 = document.getElementById("cost12").value;
+		var p1 = parseFloat(document.getElementById("cost12").value);
 		document.getElementById("cost11").value=nt/p1;
 		
-		var c1 = document.getElementById("cost11").value;
-		var nwt1 = document.getElementById("nwt1").value;
+		var c1 = parseFloat(document.getElementById("cost11").value);
+		var nwt1 = parseFloat(document.getElementById("nwt1").value);
 		document.getElementById("va1").value=((c1-nwt1)*100)/nwt1;
 		
 		
