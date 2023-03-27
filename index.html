@@ -144,41 +144,41 @@ solve1();
 		function solve() {
 		var nwt1 = parseFloat(document.getElementById("nwt1").value);
 		var va1 = parseFloat(document.getElementById("va1").value);
-		document.getElementById("cost11").value= parseFloat(nwt1+((nwt1*va1)/100)).toFixed(5);
+		document.getElementById("cost11").value= parseFloat(nwt1+((nwt1*va1)/100)).toFixed(3);
 
 		var c1 = parseFloat(document.getElementById("cost11").value);
 		var p1 = parseFloat(document.getElementById("cost12").value);
-		document.getElementById("tol1").value=parseFloat(c1*p1).toFixed(5);
+		document.getElementById("tol1").value=parseFloat(c1*p1).toFixed(0);
 
 		var t1 = parseFloat(document.getElementById("tol1").value);
 		document.getElementById("ntol").value=t1;
 
 		var nt = parseFloat(document.getElementById("ntol").value);
-		document.getElementById("tol2").value=parseFloat(((nt*100)/103)).toFixed(5);
+		document.getElementById("tol2").value=parseFloat(((nt*100)/103)).toFixed(0);
 		
 		var t2 = parseFloat(document.getElementById("tol2").value);
-		document.getElementById("gst").value=parseFloat(nt-t2).toFixed(5);
+		document.getElementById("gst").value=parseFloat(nt-t2).toFixed(0);
 
 		var p2 = parseFloat(document.getElementById("cost22").value);
-		document.getElementById("cost21").value=parseFloat(t2/p2).toFixed(5);
+		document.getElementById("cost21").value=parseFloat(t2/p2).toFixed(3);
 		
 		var c2 = parseFloat(document.getElementById("cost21").value);
 		var nwt2 = parseFloat(document.getElementById("nwt2").value);
-		document.getElementById("va2").value=parseFloat(((c2-nwt2)*100)/nwt2).toFixed(5);
+		document.getElementById("va2").value=parseFloat(((c2-nwt2)*100)/nwt2).toFixed(3);
 		
 		
 		}
 		function solve1() {
 		var nwt2 = parseFloat(document.getElementById("nwt2").value);
 		var va2 = parseFloat(document.getElementById("va2").value);
-		document.getElementById("cost21").value=parseFloat(nwt2+((nwt2*va2)/100)).toFixed(5);
+		document.getElementById("cost21").value=parseFloat(nwt2+((nwt2*va2)/100)).toFixed(3);
 
 		var c2 = parseFloat(document.getElementById("cost21").value);
 		var p2 = parseFloat(document.getElementById("cost22").value);
-		document.getElementById("tol2").value=parseFloat(c2*p2).toFixed(5);
+		document.getElementById("tol2").value=parseFloat(c2*p2).toFixed(0);
 
 		var t2 = parseFloat(document.getElementById("tol2").value);
-		document.getElementById("gst").value=parseFloat((t2*3)/100).toFixed(5);
+		document.getElementById("gst").value=parseFloat((t2*3)/100).toFixed(0);
 		
 		var g = parseFloat(document.getElementById("gst").value);
 		document.getElementById("ntol").value=g+t2;
@@ -187,11 +187,11 @@ solve1();
 		document.getElementById("tol1").value=nt;
 		
 		var p1 = parseFloat(document.getElementById("cost12").value);
-		document.getElementById("cost11").value=parseFloat(nt/p1).toFixed(5);
+		document.getElementById("cost11").value=parseFloat(nt/p1).toFixed(3);
 		
 		var c1 = parseFloat(document.getElementById("cost11").value);
 		var nwt1 = parseFloat(document.getElementById("nwt1").value);
-		document.getElementById("va1").value=parseFloat(((c1-nwt1)*100)/nwt1).toFixed(5);
+		document.getElementById("va1").value=parseFloat(((c1-nwt1)*100)/nwt1).toFixed(3);
 		
 		
 		}
